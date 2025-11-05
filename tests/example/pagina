@@ -1,0 +1,26 @@
+const {chromium} = require('playwright');
+
+(async ()=>{
+    const browser = await chromium.launch ({headless:false });
+    const context = await browser.newContext();
+    
+    const page = await context.newPage();
+    await page.goto('https://www.bing.com');
+    console.log("Primera pagina de Bin");
+    
+    const page2 = await context.newPage();
+    await page2.goto('https://www.facebook.com');
+    console.log("segunda pestaña de facebook");
+    
+    console.log("Cambiamos a la pagina de Bin ")    
+    await page.bringToFront();
+    await page.fill('#sb_form_q','Linux');
+    await page.keyboard.press('Enter');
+
+    console.log("Cambiamos a la pagina de Facebook")   
+    await page2.bringToFront();
+    await page2.fill('#email','solano.jesus@gmail.com');
+    await page2.fill('#pass','pass');
+
+    } 
+)();
