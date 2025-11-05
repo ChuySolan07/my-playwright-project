@@ -69,5 +69,4 @@ test('Flujo E2E: Login,Crear factura,Editar y eliminar Factura, hacer LogOut', a
   await page.click('text=  Cerrar Sesión ');
   console.log('Se procede a cerrar sesión');
   
-
 });
